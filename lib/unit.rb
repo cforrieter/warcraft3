@@ -8,19 +8,10 @@ class Unit
 
   def attack!(enemy)
     unless enemy.dead? || self.dead?
-      case self
-      when SiegeEngine
-        if enemy.class == Barracks
-          enemy.damage(@attack_power*2)
-        elsif enemy.class == SiegeEngine
-          enemy.damage(@attack_power)
-        end
+      if enemy.class == Barracks
+        enemy.damage(@attack_power/2)
       else
-        if enemy.class == Barracks
-          enemy.damage(@attack_power/2)
-        else
-          enemy.damage(@attack_power)
-        end
+        enemy.damage(@attack_power)
       end
     end
   end
