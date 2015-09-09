@@ -4,15 +4,20 @@ class Unit
   def initialize(hp, ap)
     @health_points = hp
     @attack_power = ap
+    @attack_power_strength = {}
   end
 
   def attack!(enemy)
     unless enemy.dead? || self.dead?
-      if enemy.class == Barracks
-        enemy.damage(@attack_power/2)
-      else
-        enemy.damage(@attack_power)
-      end
+      enemy.damage(get_attack_power(enemy.class.to_s.to_sym))
+    end
+  end
+
+  def get_attack_power(enemy)
+    if @attack_power_strength[enemy]
+      return @attack_power_strength[enemy] * @attack_power
+    else
+      return @attack_power
     end
   end
 

@@ -19,6 +19,7 @@ class Barracks < Building
     super(STARTING_GOLD, STARTING_LUMBER, STARTING_FOOD, STARTING_HP)
   end
 
+
   def can_train_footman?
     if (gold - FOOTMAN_GOLD_COST) >= 0 && (food - FOOTMAN_FOOD_COST) >= 0
       return true
