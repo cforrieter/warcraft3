@@ -1,10 +1,11 @@
 class Unit
   attr_reader :health_points, :attack_power
   
+  ATTACK_POWER_STRENGTH = {}
+
   def initialize(hp, ap)
     @health_points = hp
     @attack_power = ap
-    @attack_power_strength = {}
   end
 
   def attack!(enemy)
@@ -14,8 +15,8 @@ class Unit
   end
 
   def get_attack_power(enemy)
-    if @attack_power_strength[enemy]
-      return @attack_power_strength[enemy] * @attack_power
+    if self.class::ATTACK_POWER_STRENGTH[enemy]
+      return self.class::ATTACK_POWER_STRENGTH[enemy] * @attack_power
     else
       return @attack_power
     end
