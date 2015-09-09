@@ -27,6 +27,7 @@ describe Footman do
 
   it "deal half damage to buildings (5 instead of 10)" do
     @footman.attack!(@barracks)
+
     expect(@barracks.health_points).to eq(495) #footman should deal 5 damage
   end
 end

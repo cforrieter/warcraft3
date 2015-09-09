@@ -7,6 +7,9 @@ class Footman < Unit
 
   def initialize
     super(FOOTMAN_STARTING_HP, FOOTMAN_STARTING_AP)
+    @attack_power_strength = {
+      Barracks: 0.5
+    }
   end
 
 end
